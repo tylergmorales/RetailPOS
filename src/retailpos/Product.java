@@ -5,20 +5,22 @@
  */
 package retailpos;
 
+
+
 /**
  *
  * @author tmorales3
  */
 public class Product {
     
-    private int prodId;
+    private String prodId;
     private String prodName;
     private double price;
-    private DiscountStrat discount;
+    private DiscountStrategy discount;
     
 
 
-    public Product(int prodId, String prodName, double price, DiscountStrat discount) {
+    public Product(String prodId, String prodName, double price, DiscountStrategy discount) {
         this.setProdId(prodId);
         this.setProdName(prodName);
         this.setPrice(price);
@@ -26,13 +28,17 @@ public class Product {
         }
     
 
-    public int getProdId() {
+    public String getProdId() {
         return prodId;
     }
 
-    public void setProdId(int prodId) {
-        if(prodId > 1){
+    public void setProdId(String prodId) {
+        if(Integer.parseInt(prodId) >= 1){
             this.prodId = prodId;
+        }
+        else
+        {
+            throw new IllegalArgumentException("Please enter product ID greater than 00000");
         }
         
     }
@@ -57,13 +63,17 @@ public class Product {
         }
     }
 
-    public DiscountStrat getDiscount() {
+    public DiscountStrategy getDiscountStrategy() {
         return discount;
     }
 
-    public void setDiscount(DiscountStrat discount) {
+    public void setDiscount(DiscountStrategy discount) {
         this.discount = discount;
     }
     
-    
+    public String toString()
+    {
+        return prodName;
+        
+    }
 }

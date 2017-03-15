@@ -9,7 +9,7 @@ package retailpos;
  *
  * @author tmorales3
  */
-public interface DiscountStrat {
+public interface DiscountStrategy {
     
-    public abstract double getDiscountedPrice();
+    public abstract double getDiscount();
 }

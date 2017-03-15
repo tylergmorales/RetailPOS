@@ -9,7 +9,7 @@ package retailpos;
  *
  * @author tmorales3
  */
-public class FlatDiscount implements DiscountStrat {
+public class FlatDiscount implements DiscountStrategy {
     private int discountAmount = 5;
 
     public FlatDiscount(int discount) {
@@ -29,7 +29,7 @@ public class FlatDiscount implements DiscountStrat {
     
     
     @Override
-    public double getDiscountedPrice() {
+    public double getDiscount() {
         return discountAmount;
         
     }

@@ -19,8 +19,9 @@ public class RetailPOS {
         //mandatory prodID and qty for each item ordered
         PosTerminal pos = new PosTerminal();
         pos.startNewSale();
-        pos.addItemToSale(00001, 1);
-        pos.addItemToSale(00002, 2);
+        pos.addItemToSale("00001", 1);
+        //wont work for some reason, make it work
+        //pos.addItemToSale("00002", 2);
         pos.addCustomerToSale("A101");
         pos.endSale();
     }

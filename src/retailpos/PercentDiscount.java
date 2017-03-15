@@ -9,7 +9,7 @@ package retailpos;
  *
  * @author tmorales3
  */
-public class PercentDiscount implements DiscountStrat {
+public class PercentDiscount implements DiscountStrategy {
     private double discountAmount = .15;
 
     public PercentDiscount(double discountAmount) {
@@ -29,7 +29,7 @@ public class PercentDiscount implements DiscountStrat {
     
     
     @Override
-    public double getDiscountedPrice() {
+    public double getDiscount() {
         return discountAmount;
     }
     

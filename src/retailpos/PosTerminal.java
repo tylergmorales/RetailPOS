@@ -12,13 +12,20 @@ package retailpos;
 public class PosTerminal {
 
 
-    private Receipt receipt = new Receipt();
+    private Receipt receipt;
     
     public void startNewSale() {
-        
+         receipt = new Receipt();
     }
 
-    public void addItemToSale(int prodID, int qty) {
+    public void addItemToSale(String prodId, int qty) {
+        //pass these values to a method in the Receipt class, such as
+        receipt.addItemToSale(prodId, qty);
+        
+//        for(int i = 0; i > qty; i++)
+//        {
+//            addToProductArray(receipt.queryProduct(prodID));
+//        }
         
     }
 
@@ -27,7 +34,8 @@ public class PosTerminal {
     }
 
     public void endSale() {
-        
+        receipt.buildAndOutputReceipt();
     }
-    
+   
+
 }
