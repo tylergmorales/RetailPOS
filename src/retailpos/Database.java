@@ -11,34 +11,29 @@ package retailpos;
  */
 public class Database {
     
-    private Customer[] custArray = {new Customer("0000", "No Customer Entered"), new Customer("A101", "John Doe"), new Customer("A102", "Jane Doe"), new Customer("A103", "Jimmy Doe"), new Customer("A104", "Jesse Doe")};
-    private Product[] prodArray = {new Product("00001", "Red Hat", 9.99, new FlatDiscount(5)), new Product("00002", "Blue Jeans", 29.99, new PercentDiscount(.20)), new Product("00003", "Green Sweater", 39.99, new PercentDiscount(.25))};
+    private Customer[] custArray = {new Customer("A101", "John Doe"), new Customer("A102", "Jane Doe"), new Customer("A103", "Jimmy Doe"), new Customer("A104", "Jesse Doe")};
+    private Product[] prodArray = {new Product("00001", "Hat", 9.99, new PercentDiscount(.5)), new Product("00002", "Jeans", 29.99, new PercentDiscount(.20)), new Product("00003", "Sweater", 39.99, new PercentDiscount(.25))};
     
-    public Customer queryCustomer(String custId){
-        Customer foundCustomer = custArray[0];
+    public final Customer queryCustomer(String custId){
         for(int i = 0; i < custArray.length; i++)
         {
             if(custArray[i].getCustId().equals(custId)){
-                foundCustomer = custArray[i];
+                return custArray[i];
             }
         }
-        return foundCustomer;
+        throw new IllegalArgumentException("No customer with this ID was found!");
     }
     
-        public Product queryProduct(String prodId){
+        public final Product queryProduct(String prodId){
         Product foundProduct = prodArray[0];
         for(int i = 0; i <= prodArray.length; i++)
         {
             if(prodArray[i].getProdId().equals(prodId)) {
-                foundProduct = prodArray[i];
-                break;
-            }
-            else
-            {
-                throw new IllegalArgumentException("No product with this ID was found!");
+                return prodArray[i];
             }
         }
-        return foundProduct;
+        throw new IllegalArgumentException("No product with this ID was found!");
+        
     }
 }
 

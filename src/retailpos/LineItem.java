@@ -20,19 +20,19 @@ class LineItem {
         this.setQty(qty);
     }
 
-    public Product getProduct() {
+    public final Product getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public final void setProduct(Product product) {
         this.product = product;
     }
 
-    public int getQty() {
+    public final int getQty() {
         return qty;
     }
 
-    public void setQty(int qty) {
+    public final void setQty(int qty) {
         if(qty > 0)
         {
             this.qty = qty;
@@ -43,16 +43,17 @@ class LineItem {
         }
     }
     
-    public Database getDb() {
+    public final Database getDb() {
         return db;
     }
 
-    public void setDb(Database db) {
+    public final void setDb(Database db) {
         this.db = db;
     }
     
-    public void getDiscountAmount()
+    public final double getDiscountAmount()
     {
+        double discountAmt = 0;
         if(this.product.getDiscountStrategy() instanceof FlatDiscount)
         {
             discountAmount = (this.product.getDiscountStrategy().getDiscount() * qty); 
@@ -61,6 +62,7 @@ class LineItem {
         {
             discountAmount = ((this.product.getDiscountStrategy().getDiscount() * product.getPrice()) * qty);  
         }
+        return discountAmount;
     }
     
     public final Product queryProduct(String prodId){
@@ -69,8 +71,10 @@ class LineItem {
         
     }
     
-    public String toString(){
-        return product.getProdId() + "\t\t" + product.toString() + "\t\t" + product.getPrice() + "\t\t" + qty + "\t\t" + (qty * product.getPrice())+ "\t\t" + this.discountAmount;
+    @Override
+    public final String toString(){
+        //     ----PRODUCT ID-----            --PRODUCT NAME---             --PRODUCT PRICE--             QTY            -------------------SUBTOTAL---------------------            -------------------DISCOUNT-------------------             --------------------------------------TOTAL-----------------------------------
+        return product.getProdId() + "\t\t" + product.toString() + "\t\t" + product.getPrice() + "\t\t" + qty + "\t\t" + String.format("%.2f", (qty * product.getPrice()))+ "\t\t" + String.format("%.2f", this.getDiscountAmount()) + "\t\t" + String.format("%.2f", ((qty * product.getPrice()) - this.getDiscountAmount()));
         
     }
 }

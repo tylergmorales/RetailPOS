@@ -16,20 +16,18 @@ public class FlatDiscount implements DiscountStrategy {
         this.setDiscountAmount(discount);
     }
 
-    public int getDiscountAmount() {
+    public final int getDiscountAmount() {
         return discountAmount;
     }
 
-    public void setDiscountAmount(int discountAmount) {
+    public final void setDiscountAmount(int discountAmount) {
         if(discountAmount > .01){
             this.discountAmount = discountAmount;
         }
     }
 
-    
-    
     @Override
-    public double getDiscount() {
+    public final double getDiscount() {
         return discountAmount;
         
     }

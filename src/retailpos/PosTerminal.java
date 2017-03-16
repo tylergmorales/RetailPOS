@@ -19,18 +19,19 @@ public class PosTerminal {
     }
 
     public void addItemToSale(String prodId, int qty) {
-        //pass these values to a method in the Receipt class, such as
+
         receipt.addItemToSale(prodId, qty);
-        
-//        for(int i = 0; i > qty; i++)
-//        {
-//            addToProductArray(receipt.queryProduct(prodID));
-//        }
+
         
     }
 
     public void addCustomerToSale(String custID) {
         receipt.queryCustomer(custID);
+    }
+    
+    public void addCustomerToSale()
+    {
+        
     }
 
     public void endSale() {

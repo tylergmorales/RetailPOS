@@ -20,24 +20,37 @@ public class Customer {
 
     
     
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public final void setName(String name) {
         if(name != null || name.length() > 0 ){
             this.name = name;
         }
+        else
+        {
+            throw new IllegalArgumentException("Please enter customer name longer than 0 characters");
+        }
     }
 
-    public String getCustId() {
+    public final String getCustId() {
         return custId;
     }
 
-    public void setCustId(String custId) {
+    public final void setCustId(String custId) {
         if(custId != null || custId.length() > 0 ){
             this.custId = custId;
         }
+        else
+        {
+            throw new IllegalArgumentException("Please enter valid customer ID");
+        }
+    }
+    
+    public String toString()
+    {
+        return name;
     }
     
     

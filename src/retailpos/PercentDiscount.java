@@ -16,11 +16,11 @@ public class PercentDiscount implements DiscountStrategy {
         this.setDiscountAmount(discountAmount);
     }
 
-    public double getDiscountAmount() {
+    public final double getDiscountAmount() {
         return discountAmount;
     }
 
-    public void setDiscountAmount(double discountAmount) {
+    public final void setDiscountAmount(double discountAmount) {
         if(discountAmount > .01){
             this.discountAmount = discountAmount;
         }
@@ -29,7 +29,7 @@ public class PercentDiscount implements DiscountStrategy {
     
     
     @Override
-    public double getDiscount() {
+    public final double getDiscount() {
         return discountAmount;
     }
     
