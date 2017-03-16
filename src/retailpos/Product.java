@@ -17,6 +17,7 @@ public class Product {
     private String prodName;
     private double price;
     private DiscountStrategy discount;
+    private QuantityDiscountStrategy qtyDiscount;
     
 
 
@@ -24,15 +25,22 @@ public class Product {
         this.setProdId(prodId);
         this.setProdName(prodName);
         this.setPrice(price);
-        this.setDiscount(discount);
+        this.setDiscountStrategy(discount);
+        }
+    
+    public Product(String prodId, String prodName, double price, QuantityDiscountStrategy discount) {
+        this.setProdId(prodId);
+        this.setProdName(prodName);
+        this.setPrice(price);
+        this.setQtyDiscount(discount);
         }
     
 
-    public String getProdId() {
+    public final String getProdId() {
         return prodId;
     }
 
-    public void setProdId(String prodId) {
+    public final void setProdId(String prodId) {
         if(Integer.parseInt(prodId) >= 1){
             this.prodId = prodId;
         }
@@ -43,32 +51,44 @@ public class Product {
         
     }
     
-    public String getProdName() {
+    public final String getProdName() {
         return prodName;
     }
 
-    public void setProdName(String prodName) {
+    public final void setProdName(String prodName) {
         if(prodName != null || prodName.length() > 1){
             this.prodName = prodName;
         }
     }
 
-    public double getPrice() {
+    public final double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public final void setPrice(double price) {
         if(price > .01){
             this.price = price;
         }
     }
 
-    public DiscountStrategy getDiscountStrategy() {
+    public final DiscountStrategy getDiscountStrategy() {
         return discount;
     }
 
-    public void setDiscount(DiscountStrategy discount) {
+    public final DiscountStrategy getDiscount() {
+        return discount;
+    }
+
+    public final QuantityDiscountStrategy getQtyDiscountStrategy() {
+        return qtyDiscount;
+    }
+    
+    public final void setDiscountStrategy(DiscountStrategy discount) {
         this.discount = discount;
+    }
+    
+    public final void setQtyDiscount(QuantityDiscountStrategy discount) {
+        this.qtyDiscount = discount;
     }
     
     public String toString()

@@ -7,9 +7,9 @@ package retailpos;
 
 /**
  *
- * @author tmorales3
+ * @author Tyler
  */
-public interface DiscountStrategy {
-    
+public interface QuantityDiscountStrategy {
+    public abstract int getRequiredQty();
     public abstract double getDiscountAmount();
 }
