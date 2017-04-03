@@ -23,6 +23,7 @@ public class RetailPOS {
         pos.addCustomerToSale("A102");
         
         pos.addItemToSale("00001", 2);
+        pos.addItemToSale("00001", 7);
         pos.addItemToSale("00002", 7);
         pos.addItemToSale("00003", 6);
 

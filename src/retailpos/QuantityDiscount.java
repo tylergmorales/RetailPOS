@@ -9,7 +9,7 @@ package retailpos;
  *
  * @author tmorales3
  */
-public class QuantityDiscount implements DiscountStrategy, QuantityDiscountStrategy {
+public class QuantityDiscount implements QuantityDiscountStrategy {
     private double discountAmount = .25;
     private int requiredQty;
 

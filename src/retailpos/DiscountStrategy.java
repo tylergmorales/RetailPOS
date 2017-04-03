@@ -11,5 +11,7 @@ package retailpos;
  */
 public interface DiscountStrategy {
     
+    
+    
     public abstract double getDiscountAmount();
 }
