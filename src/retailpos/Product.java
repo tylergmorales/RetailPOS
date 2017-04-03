@@ -22,25 +22,36 @@ public class Product {
 
 
     public Product(String prodId, String prodName, double price, DiscountStrategy discount) {
-        this.setProdId(prodId);
-        this.setProdName(prodName);
-        this.setPrice(price);
-        this.setDiscountStrategy(discount);
+        try{
+            this.setProdId(prodId);
+            this.setProdName(prodName);
+            this.setPrice(price);
+            this.setDiscountStrategy(discount);
+        } catch (IllegalArgumentException iae)
+        {
+            System.out.println(iae.getMessage());
         }
+    }
+
     
     public Product(String prodId, String prodName, double price, QuantityDiscountStrategy discount) {
-        this.setProdId(prodId);
-        this.setProdName(prodName);
-        this.setPrice(price);
-        this.setQtyDiscount(discount);
+        try{ 
+            this.setProdId(prodId);
+            this.setProdName(prodName);
+            this.setPrice(price);
+            this.setQtyDiscount(discount);
+        } catch (IllegalArgumentException iae)
+        {
+            System.out.println(iae.getMessage());
         }
+    }
     
 
     public final String getProdId() {
         return prodId;
     }
 
-    public final void setProdId(String prodId) {
+    public final void setProdId(String prodId) throws IllegalArgumentException {
         if(Integer.parseInt(prodId) >= 1){
             this.prodId = prodId;
         }
@@ -55,9 +66,13 @@ public class Product {
         return prodName;
     }
 
-    public final void setProdName(String prodName) {
-        if(prodName != null || prodName.length() > 1){
+    public final void setProdName(String prodName) throws IllegalArgumentException {
+        if(prodName != null || prodName.length() >= 1){
             this.prodName = prodName;
+        }
+        else
+        {
+            throw new IllegalArgumentException("Please enter a name of at least 1 characters.");
         }
     }
 
@@ -65,9 +80,13 @@ public class Product {
         return price;
     }
 
-    public final void setPrice(double price) {
+    public final void setPrice(double price) throws IllegalArgumentException{
         if(price > .01){
             this.price = price;
+        }
+        else
+        {
+            throw new IllegalArgumentException("Please enter price greater than .01");
         }
     }
 
