@@ -62,9 +62,9 @@ class LineItem {
         {
             discountAmount = ((this.product.getDiscountStrategy().getDiscountAmount() * product.getPrice()) * qty);  
         }
-        else if(this.product.getDiscountStrategy() instanceof QuantityDiscount && this.product.getQtyDiscountStrategy().getRequiredQty() <= this.qty)
+        else if(this.product.getDiscountStrategy() instanceof QuantityDiscount && this.qty >= this.product.getDiscountStrategy().getRequiredQty())
         {
-            discountAmount = (this.product.getQtyDiscountStrategy().getDiscountAmount() * product.getPrice() * qty);
+            discountAmount = ((this.product.getDiscountStrategy().getDiscountAmount() * product.getPrice()) * qty);
         }
         return discountAmount;
     }

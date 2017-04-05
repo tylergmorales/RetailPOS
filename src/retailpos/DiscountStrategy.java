@@ -14,4 +14,5 @@ public interface DiscountStrategy {
     
     
     public abstract double getDiscountAmount();
+    public abstract int getRequiredQty();
 }

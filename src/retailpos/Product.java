@@ -17,7 +17,6 @@ public class Product {
     private String prodName;
     private double price;
     private DiscountStrategy discount;
-    private QuantityDiscountStrategy qtyDiscount;
     
 
 
@@ -32,20 +31,6 @@ public class Product {
             System.out.println(iae.getMessage());
         }
     }
-
-    
-    public Product(String prodId, String prodName, double price, QuantityDiscountStrategy discount) {
-        try{ 
-            this.setProdId(prodId);
-            this.setProdName(prodName);
-            this.setPrice(price);
-            this.setQtyDiscount(discount);
-        } catch (IllegalArgumentException iae)
-        {
-            System.out.println(iae.getMessage());
-        }
-    }
-    
 
     public final String getProdId() {
         return prodId;
@@ -97,17 +82,9 @@ public class Product {
     public final DiscountStrategy getDiscount() {
         return discount;
     }
-
-    public final QuantityDiscountStrategy getQtyDiscountStrategy() {
-        return qtyDiscount;
-    }
     
     public final void setDiscountStrategy(DiscountStrategy discount) {
         this.discount = discount;
-    }
-    
-    public final void setQtyDiscount(QuantityDiscountStrategy discount) {
-        this.qtyDiscount = discount;
     }
     
     public String toString()

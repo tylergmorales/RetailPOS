@@ -11,11 +11,16 @@ package retailpos;
  */
 public class PercentDiscount implements DiscountStrategy {
     private double discountAmount = .15;
+    private int requiredQty = 0;
 
     public PercentDiscount(double discountAmount) {
         this.setDiscountAmount(discountAmount);
     }
 
+    public int getRequiredQty(){
+        return requiredQty;
+    }
+    
     @Override
     public final double getDiscountAmount() {
         return discountAmount;

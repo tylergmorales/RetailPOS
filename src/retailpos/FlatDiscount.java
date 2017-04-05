@@ -11,9 +11,14 @@ package retailpos;
  */
 public class FlatDiscount implements DiscountStrategy {
     private int discountAmount = 5;
+    private int requiredQty = 0;
 
     public FlatDiscount(int discount) {
         this.setDiscountAmount(discount);
+    }
+    
+    public int getRequiredQty(){
+        return requiredQty;
     }
 
     public final double getDiscountAmount() {

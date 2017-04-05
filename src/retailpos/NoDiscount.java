@@ -11,8 +11,13 @@ package retailpos;
  */
 public class NoDiscount implements DiscountStrategy {
     private final double DISCOUNT_AMOUNT = 0;
+    private int requiredQty = 0;
 
     public NoDiscount() {
+    }
+    
+    public int getRequiredQty() {
+        return requiredQty;
     }
 
     @Override
