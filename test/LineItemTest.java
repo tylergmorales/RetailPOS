@@ -41,7 +41,7 @@ public class LineItemTest extends TestCase{
     {
         Product p = new Product("00001", "Shirt", 3.99, new PercentDiscount(.25));
         LineItem lI = new LineItem(p, 4);
-        double temp = lI.getQty() * p.getPrice() * .25;
+        double temp = lI.getQty() * p.getPrice() * p.getDiscountStrategy().getDiscountAmount();
         double temp2 = ((p.getDiscountStrategy().getDiscountAmount() * p.getPrice()) * lI.getQty());
         assertEquals(temp, temp2);
     }
@@ -50,7 +50,7 @@ public class LineItemTest extends TestCase{
     {
         Product p = new Product("00001", "Shirt", 3.99, new FlatDiscount(5));
         LineItem lI = new LineItem(p, 4);
-        double temp = lI.getQty() * 5;
+        double temp = lI.getQty() * p.getDiscountStrategy().getDiscountAmount();
         double temp2 = p.getDiscountStrategy().getDiscountAmount() * lI.getQty();
         assertEquals(temp, temp2);
     }
