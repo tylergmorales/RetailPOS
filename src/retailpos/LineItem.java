@@ -9,7 +9,7 @@ package retailpos;
  *
  * @author tmorales3
  */
-class LineItem {
+public class LineItem {
     private Product product;
     private int qty;
     private Database db = new Database();
@@ -17,6 +17,11 @@ class LineItem {
 
     public LineItem(String prodId, int qty) {
         this.setProduct(db.queryProduct(prodId));
+        this.setQty(qty);
+    }
+    
+    public LineItem(Product p, int qty) {
+        this.setProduct(p);
         this.setQty(qty);
     }
 
