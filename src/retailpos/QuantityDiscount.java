@@ -10,7 +10,7 @@ package retailpos;
  * @author tmorales3
  */
 public class QuantityDiscount implements DiscountStrategy {
-    private double discountAmount = .25;
+    private double discountRate = .25;
     private int requiredQty;
 
     public QuantityDiscount(double discountAmount, int requiredQty)
@@ -21,13 +21,13 @@ public class QuantityDiscount implements DiscountStrategy {
     
     @Override
     public double getDiscountRate() {
-        return discountAmount;
+        return discountRate;
     }
 
     public final void setDiscountAmount(double discountAmount) {
         if(discountAmount > 0)
         {
-            this.discountAmount = discountAmount;
+            this.discountRate = discountAmount;
         }
         else
         {
