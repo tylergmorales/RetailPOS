@@ -41,8 +41,8 @@ public class LineItemTest extends TestCase{
     {
         Product p = new Product("00001", "Shirt", 3.99, new PercentDiscount(.25));
         LineItem lI = new LineItem(p, 4);
-        double temp = lI.getQty() * p.getPrice() * p.getDiscountStrategy().getDiscountAmount();
-        double temp2 = ((p.getDiscountStrategy().getDiscountAmount() * p.getPrice()) * lI.getQty());
+        double temp = lI.getQty() * p.getPrice() * p.getDiscountStrategy().getDiscountRate();
+        double temp2 = ((p.getDiscountStrategy().getDiscountRate() * p.getPrice()) * lI.getQty());
         assertEquals(temp, temp2);
     }
     
@@ -50,8 +50,8 @@ public class LineItemTest extends TestCase{
     {
         Product p = new Product("00001", "Shirt", 3.99, new FlatDiscount(5));
         LineItem lI = new LineItem(p, 4);
-        double temp = lI.getQty() * p.getDiscountStrategy().getDiscountAmount();
-        double temp2 = p.getDiscountStrategy().getDiscountAmount() * lI.getQty();
+        double temp = lI.getQty() * p.getDiscountStrategy().getDiscountRate();
+        double temp2 = p.getDiscountStrategy().getDiscountRate() * lI.getQty();
         assertEquals(temp, temp2);
     }
     
@@ -63,7 +63,7 @@ public class LineItemTest extends TestCase{
         LineItem lI = new LineItem(p, 4);
         temp1 = 0;
         if(lI.getQty() >= p.getDiscountStrategy().getRequiredQty()){
-            temp2 = ((p.getDiscountStrategy().getDiscountAmount() * p.getPrice()) * lI.getQty());
+            temp2 = ((p.getDiscountStrategy().getDiscountRate() * p.getPrice()) * lI.getQty());
         } else {
             temp2 = 0;
         }
@@ -76,9 +76,9 @@ public class LineItemTest extends TestCase{
         double temp2;
         Product p = new Product("00001", "Shirt", 3.99, new QuantityDiscount(.25, 5));
         LineItem lI = new LineItem(p, 6);
-        temp1 = (p.getDiscountStrategy().getDiscountAmount() * p.getPrice()) * lI.getQty();
+        temp1 = (p.getDiscountStrategy().getDiscountRate() * p.getPrice()) * lI.getQty();
         if(lI.getQty() >= p.getDiscountStrategy().getRequiredQty()){
-            temp2 = ((p.getDiscountStrategy().getDiscountAmount() * p.getPrice()) * lI.getQty());
+            temp2 = ((p.getDiscountStrategy().getDiscountRate() * p.getPrice()) * lI.getQty());
         } else {
             temp2 = 0;
         }

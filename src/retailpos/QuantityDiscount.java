@@ -20,7 +20,7 @@ public class QuantityDiscount implements DiscountStrategy {
     }
     
     @Override
-    public double getDiscountAmount() {
+    public double getDiscountRate() {
         return discountAmount;
     }
 

@@ -10,7 +10,7 @@ package retailpos;
  * @author tmorales3
  */
 public class PercentDiscount implements DiscountStrategy {
-    private double discountAmount = .15;
+    private double discountRate = .15;
     private int requiredQty = 0;
 
     public PercentDiscount(double discountAmount) {
@@ -22,13 +22,13 @@ public class PercentDiscount implements DiscountStrategy {
     }
     
     @Override
-    public final double getDiscountAmount() {
-        return discountAmount;
+    public final double getDiscountRate() {
+        return discountRate;
     }
 
     public final void setDiscountAmount(double discountAmount) {
         if(discountAmount > .01){
-            this.discountAmount = discountAmount;
+            this.discountRate = discountAmount;
         }
     }  
 }

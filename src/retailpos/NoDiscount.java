@@ -10,7 +10,7 @@ package retailpos;
  * @author tmorales3
  */
 public class NoDiscount implements DiscountStrategy {
-    private final double DISCOUNT_AMOUNT = 0;
+    private final double DISCOUNT_RATE = 0;
     private int requiredQty = 0;
 
     public NoDiscount() {
@@ -21,8 +21,8 @@ public class NoDiscount implements DiscountStrategy {
     }
 
     @Override
-    public final double getDiscountAmount() {
-        return DISCOUNT_AMOUNT;
+    public final double getDiscountRate() {
+        return DISCOUNT_RATE;
     }
 
     public final void setDiscountAmount(double discountAmount) {

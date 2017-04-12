@@ -61,15 +61,15 @@ public class LineItem {
         double discountAmt = 0;
         if(this.product.getDiscountStrategy() instanceof FlatDiscount)
         {
-            discountAmount = (this.product.getDiscountStrategy().getDiscountAmount() * qty); 
+            discountAmount = (this.product.getDiscountStrategy().getDiscountRate() * qty); 
         }
         else if(this.product.getDiscountStrategy() instanceof PercentDiscount)
         {
-            discountAmount = ((this.product.getDiscountStrategy().getDiscountAmount() * product.getPrice()) * qty);  
+            discountAmount = ((this.product.getDiscountStrategy().getDiscountRate() * product.getPrice()) * qty);  
         }
         else if(this.product.getDiscountStrategy() instanceof QuantityDiscount && this.qty >= this.product.getDiscountStrategy().getRequiredQty())
         {
-            discountAmount = ((this.product.getDiscountStrategy().getDiscountAmount() * product.getPrice()) * qty);
+            discountAmount = ((this.product.getDiscountStrategy().getDiscountRate() * product.getPrice()) * qty);
         }
         return discountAmount;
     }

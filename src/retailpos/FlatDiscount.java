@@ -10,7 +10,7 @@ package retailpos;
  * @author tmorales3
  */
 public class FlatDiscount implements DiscountStrategy {
-    private int discountAmount = 5;
+    private int discountRate = 5;
     private int requiredQty = 0;
 
     public FlatDiscount(int discount) {
@@ -21,13 +21,13 @@ public class FlatDiscount implements DiscountStrategy {
         return requiredQty;
     }
 
-    public final double getDiscountAmount() {
-        return discountAmount;
+    public final double getDiscountRate() {
+        return discountRate;
     }
 
     public final void setDiscountAmount(int discountAmount) {
         if(discountAmount > .01){
-            this.discountAmount = discountAmount;
+            this.discountRate = discountAmount;
         }
     }
 }
